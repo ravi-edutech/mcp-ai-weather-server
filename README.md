@@ -16,7 +16,10 @@ Follow these steps to clone and run the project:
     npm run build
 ```
 4. **Access the application**
-    follow the instruction in the document to test this MCP server with Claude Desktop
+    
+ follow the instruction in the document to test this MCP server with Claude Desktop
+```bash
     https://modelcontextprotocol.io/quickstart/server#testing-your-server-with-claude-for-desktop
+```
 
 > Make sure you have [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/) installed.
