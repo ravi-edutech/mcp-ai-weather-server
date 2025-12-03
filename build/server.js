@@ -6,7 +6,7 @@ export const NWS_API_BASE = "https://api.weather.gov";
 export const USER_AGENT = "weather-app/1.0";
 export const server = new McpServer({
     name: "weather",
-    version: "1.0.0"
+    version: "1.0.0",
 });
 registerAlertsTool(server);
 registerForecastTool(server);

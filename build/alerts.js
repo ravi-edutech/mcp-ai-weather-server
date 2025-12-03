@@ -14,7 +14,10 @@ function formatAlert(feature) {
 }
 export function registerAlertsTool(server) {
     server.tool("get_alerts", "Get weather alerts for a state", {
-        state: z.string().length(2).describe("Two-letter state code (e.g. CA, NY)"),
+        state: z
+            .string()
+            .length(2)
+            .describe("Two-letter state code (e.g. CA, NY)"),
     }, async ({ state }) => {
         const stateCode = state.toUpperCase();
         const alertsUrl = `${NWS_API_BASE}/alerts?area=${stateCode}`;

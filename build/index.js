@@ -5,7 +5,7 @@ const NWS_API_BASE = "https://api.weather.gov";
 const USER_AGENT = "weather-app/1.0";
 const server = new McpServer({
     name: "weather",
-    version: "1.0.0"
+    version: "1.0.0",
 });
 // Helper function for making NWS API requests
 async function makeNWSRequest(url) {

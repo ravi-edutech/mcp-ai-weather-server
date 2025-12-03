@@ -12,13 +12,17 @@ function formatForecast(period) {
 }
 export function registerForecastTool(server) {
     server.tool("get_forecast", "Get weather forecast for a location", {
-        latitude: z.number().min(-90).max(90).describe("Latitude of the location"),
+        latitude: z
+            .number()
+            .min(-90)
+            .max(90)
+            .describe("Latitude of the location"),
         longitude: z
             .number()
             .min(-180)
             .max(180)
             .describe("Longitude of the location"),
-    }, async ({ latitude, longitude }) => {
+    }, async ({ latitude, longitude, }) => {
         const pointsUrl = `${NWS_API_BASE}/points/${latitude.toFixed(4)},${longitude.toFixed(4)}`;
         const pointsData = await makeNWSRequest(pointsUrl);
         if (!pointsData) {
