@@ -7,12 +7,8 @@ const USER_AGENT = "weather-app/1.0";
 
 
 const server = new McpServer({
-    name: "weather",
-    version: "1.0.0",
-    capabilities: {
-       resources: {},
-       tools: {},
-    },
+  name: "weather",
+  version: "1.0.0"
 });
 
 
