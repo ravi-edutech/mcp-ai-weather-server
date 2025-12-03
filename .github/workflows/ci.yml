@@ -35,3 +35,19 @@ jobs:
         
       - name: Build project
         run: npm run build
+    # ---------------------------------------------
+    # SLACK NOTIFICATION (OPTIONAL)
+    # ---------------------------------------------
+    # Trigger this always (success or failure)
+    # Add SLACK_WEBHOOK_URL secret in repository settings
+    steps:
+      - name: Slack Notification
+        if: always()        # ensures notification on success/failure
+        uses: slackapi/slack-github-action@v1.24.0
+        with:
+          payload: |
+            {
+              "text": "GitHub Action Status: *${{ job.status }}* for `${{ github.repository }}` on branch `${{ github.ref_name }}`"
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
