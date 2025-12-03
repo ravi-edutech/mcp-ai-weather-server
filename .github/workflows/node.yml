@@ -43,11 +43,6 @@ jobs:
         uses: slackapi/slack-github-action@v1.24.0
         with:
          payload: |
-            {
-                "text": "🔔 *${{ job.status }}* on `${{ github.repository }}`  
-                        OS: *${{ matrix.os }}*  
-                        Node: *${{ matrix.node-version }}*  
-                        Run: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-            }
+            {"text": "🔔 *${{ job.status }}* on `${{ github.repository }}`\nOS: *${{ matrix.os }}*\nNode: *${{ matrix.node-version }}*\nRun: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"}
         env:
             SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
