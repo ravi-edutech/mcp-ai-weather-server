@@ -21,11 +21,12 @@ export function registerAlertsTool(server: McpServer) {
     "get_alerts",
     "Get weather alerts for a state",
     {
-      state: z.string()
-      .length(2)
-      .describe("Two-letter state code (e.g. CA, NY)"),
+      state: z
+        .string()
+        .length(2)
+        .describe("Two-letter state code (e.g. CA, NY)"),
     },
-  async ({ state }: { state: string }) => {
+    async ({ state }: { state: string }) => {
       const stateCode = state.toUpperCase();
       const alertsUrl = `${NWS_API_BASE}/alerts?area=${stateCode}`;
       const alertsData = await makeNWSRequest<AlertsResponse>(alertsUrl);
@@ -64,6 +65,6 @@ export function registerAlertsTool(server: McpServer) {
           },
         ],
       };
-    }
+    },
   );
 }

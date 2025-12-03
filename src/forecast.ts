@@ -19,14 +19,24 @@ export function registerForecastTool(server: McpServer) {
     "get_forecast",
     "Get weather forecast for a location",
     {
-      latitude: z.number().min(-90).max(90).describe("Latitude of the location"),
+      latitude: z
+        .number()
+        .min(-90)
+        .max(90)
+        .describe("Latitude of the location"),
       longitude: z
         .number()
         .min(-180)
         .max(180)
         .describe("Longitude of the location"),
     },
-  async ({ latitude, longitude }: { latitude: number; longitude: number }) => {
+    async ({
+      latitude,
+      longitude,
+    }: {
+      latitude: number;
+      longitude: number;
+    }) => {
       const pointsUrl = `${NWS_API_BASE}/points/${latitude.toFixed(4)},${longitude.toFixed(4)}`;
       const pointsData = await makeNWSRequest<PointsResponse>(pointsUrl);
 
@@ -88,6 +98,6 @@ export function registerForecastTool(server: McpServer) {
           },
         ],
       };
-    }
+    },
   );
 }

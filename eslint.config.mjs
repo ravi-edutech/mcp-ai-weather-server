@@ -8,11 +8,15 @@ export default [
   ...tseslint.configs.recommended,
   prettier,
   {
+    ignores: ['build/**'],
     files: ['**/*.ts', '**/*.tsx'],
     languageOptions: {
       parser: tseslint.parser,
       parserOptions: {
         project: './tsconfig.json',
+      },
+      globals: {
+        fetch: 'readonly',
       },
     },
     plugins: {
@@ -21,6 +25,7 @@ export default [
     },
     rules: {
       'prettier/prettier': 'error',
+      "no-console": "off",
     },
   },
 ];
