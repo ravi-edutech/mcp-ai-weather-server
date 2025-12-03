@@ -4,11 +4,11 @@ import prettier from 'eslint-config-prettier';
 import prettierPlugin from 'eslint-plugin-prettier';
 
 export default [
+  { ignores: ['build/**'] },
   js.configs.recommended,
   ...tseslint.configs.recommended,
   prettier,
   {
-    ignores: ['build/**'],
     files: ['**/*.ts', '**/*.tsx'],
     languageOptions: {
       parser: tseslint.parser,
