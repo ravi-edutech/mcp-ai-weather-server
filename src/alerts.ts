@@ -21,7 +21,9 @@ export function registerAlertsTool(server: McpServer) {
     "get_alerts",
     "Get weather alerts for a state",
     {
-      state: z.string().length(2).describe("Two-letter state code (e.g. CA, NY)"),
+      state: z.string()
+      .length(2)
+      .describe("Two-letter state code (e.g. CA, NY)"),
     },
   async ({ state }: { state: string }) => {
       const stateCode = state.toUpperCase();

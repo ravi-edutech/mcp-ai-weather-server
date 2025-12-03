@@ -1,16 +1,14 @@
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";    
+import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
 
 const NWS_API_BASE = "https://api.weather.gov";
 const USER_AGENT = "weather-app/1.0";
 
-
 const server = new McpServer({
   name: "weather",
-  version: "1.0.0"
+  version: "1.0.0",
 });
-
 
 // Helper function for making NWS API requests
 async function makeNWSRequest<T>(url: string): Promise<T | null> {
@@ -79,7 +77,6 @@ interface ForecastResponse {
   };
 }
 
-
 // Register weather tools
 server.tool(
   "get_alerts",
@@ -128,7 +125,6 @@ server.tool(
     };
   },
 );
-
 
 server.tool(
   "get_forecast",
@@ -217,7 +213,6 @@ server.tool(
     };
   },
 );
-
 
 async function main() {
   const transport = new StdioServerTransport();
