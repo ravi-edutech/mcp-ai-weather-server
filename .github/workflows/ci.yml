@@ -40,7 +40,6 @@ jobs:
     # ---------------------------------------------
     # Trigger this always (success or failure)
     # Add SLACK_WEBHOOK_URL secret in repository settings
-    steps:
       - name: Slack Notification
         if: always()        # ensures notification on success/failure
         uses: slackapi/slack-github-action@v1.24.0
